@@ -19,7 +19,7 @@ data | Science, Technology & Innovation Projects registered in Colciencias (Colo
 data | Anti-Personnel Mine Sweeping (Colombia)| `anti-personnel-mines`
 documentation | Setting Up Python Conda | `setting-up-python-conda`
 documentation | Building a Map with Leaflet | `simple-leaflet-map`
-
+data | Open Data Lationamerica | [`open-data-latinoamerica`](http://www.opendatalatinoamerica.org/home/)
 
 
 # Project Ideas
