@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.state rect {
+  fill: #dedede;
+}
+
+.state text {
+  font: 12px sans-serif;
+  text-anchor: middle;
+}
+
+.state--selected rect {
+  fill: #9f4a6c;
+}
+
+.state--selected text {
+  fill: white;
+}
+
+</style>
+<svg width="960" height="500"></svg>
+<script id="grid" type="text/plain">
+    SPS
+
+                    GAJ
+            ATL MAG CES
+        COR SUC BOL 
+    CHO ANT SAN NOR        
+    RIS CAL BOY ARA
+    VAL TOL CUN CAS            
+NAR CAU HUI MET VIC
+    PUT CAQ GAV GAI
+            VAU
+                AMA
+</script>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script>
+
+var states = [],
+    selectedStates = ["CUN", "SAN", "AMA", "CHO"];
+
+d3.select("#grid").text().split("\n").forEach(function(line, i) {
+  var re = /\w+/g, m;
+  while (m = re.exec(line)) states.push({
+    name: m[0],
+    selected: selectedStates.indexOf(m[0]) >= 0,
+    x: m.index / 4,
+    y: i
+  });
+});
+
+var svg = d3.select("svg"),
+    width = +svg.attr("width"),
+    height = +svg.attr("height");
+
+var gridWidth = d3.max(states, function(d) { return d.x; }) + 1,
+    gridHeight = d3.max(states, function(d) { return d.y; }) + 1,
+    cellSize = 40;
+
+var state = svg.append("g")
+    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")")
+  .selectAll(".state")
+    .data(states)
+  .enter().append("g")
+    .attr("class", function(d) { return "state" + (d.selected ? " state--selected" : ""); })
+    .attr("transform", function(d) { return "translate(" + (d.x - gridWidth / 2) * cellSize + "," + (d.y - gridHeight / 2) * cellSize + ")"; });
+
+state.append("rect")
+    .attr("x", -cellSize / 2)
+    .attr("y", -cellSize / 2)
+    .attr("width", cellSize - 1)
+    .attr("height", cellSize - 1);
+
+state.append("text")
+    .attr("dy", ".35em")
+    .text(function(d) { return d.name; });
+
+</script>

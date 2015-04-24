@@ -1,0 +1,1 @@
+A Colombian Department level grid inspired by [Manuel Aristaran's Argentina province grid](http://bl.ocks.org/jazzido/7e48b92a0f9d1e953066) and [Mike Bostock's state grid](http://bl.ocks.org/mbostock/29cc3cc4078091fd2115).Originally seen on [Allison McCann's graphic](http://fivethirtyeight.com/features/where-your-state-gets-its-money/) about US state taxes. 

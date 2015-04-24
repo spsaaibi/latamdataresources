@@ -15,5 +15,3 @@ library(ggplot2)
 data2 <- read_excel(path = "Departamento_Administrativo_de_la_Presidencia.situaciondesminadohumanitario.xlsx")
 
 write.csv(data2, file = "anti-personnel-mines.csv",row.names=FALSE)
-
-
